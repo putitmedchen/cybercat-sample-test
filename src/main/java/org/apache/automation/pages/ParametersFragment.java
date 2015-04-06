@@ -28,6 +28,8 @@ public class ParametersFragment extends AbstractPageObject {
         addElement(new SvgChart("ParametersPageFragment.parametersResize", PathType.byXPath, "(//div[@class='nicescroll-rails']/div)[last()]"));
         
         addElement(new SelectorBox("ParametersPageFragment.powerMeasurementUnits", PathType.byXPath, "//select[@id='p_POWER_MEASURE_UNITS']"));
+        addElement(new SelectorBox("ParametersPageFragment.productionMeasurementUnits", PathType.byXPath, "//select[@id='p_PRODUCTION_MEASURE_UNITS']"));
+
         addElement(new SelectorBox("ParametersPageFragment.powerDataSource", PathType.byXPath, "//select[@id='p_POWER_DATA_CLASS']"));
         addElement(new SelectorBox("ParametersPageFragment.reactiveProductionDataSource", PathType.byXPath, "//select[@id='p_REACTIVE_POWER_DATA_CLASS']"));
         addElement(new SelectorBox("ParametersPageFragment.reactiveProductionMeasurementUnits", PathType.byXPath, "//select[@id='p_REACTIVE_PRODUCTION_MEASURE_UNITS']"));
@@ -46,6 +48,7 @@ public class ParametersFragment extends AbstractPageObject {
 
 
         addElement(new JQButton("scrollButton", PathType.byXPath, "(//div[last()])"));
+        addElement(new JQButton("parametersFragment", PathType.byXPath, "(//div[@id='custom-parameters-content'])"));
 
     }
 
@@ -63,11 +66,19 @@ public class ParametersFragment extends AbstractPageObject {
 
         getSelectorBox("ParametersPageFragment.outdoorTemperature").selectorBox(powerCurveParameters.getOutdoorTemperatureDataSource().getValue());
 
+        execJS("$('#custom-parameters-content').getNiceScroll().doScrollPos(0,1000000000000,10)");
+        //getJQButton("parametersFragment").executeScript("scroll(0, 250)");
+
+
+        //  execJS("$('//div[@class='nicescroll-rails' and position()=last()].css('opacity', '1')");
+        // execJS("$('div.nicescroll-rails:last').css('opacity', '1')");
+        // execJS("$('div:last').animate({top: '100px', 200})");
+        
      //   execJS("$('div:last').css('top', '95px')");
       //  execJS("$('div:last').css({'top': '95px'})");
        // execJS("$('div:last').css({top:'100px',position:'fixed'})");
        // execJS("$('div:last').css({top:'100px',position:'fixed'})");
-        execJS("$('div:last').animate({top: '100px', 200})");
+        // execJS("$('div:last').animate({top: '100px', 200})");
      //   execJS("$('div:last').css({'top': '100px'})");
       //  execJS("$('div:last').scrollTop(95)");
         
@@ -104,9 +115,12 @@ public class ParametersFragment extends AbstractPageObject {
         getButton("ParametersPageFragment.parameters").click();
         
         getSelectorBox("ParametersPageFragment.powerDataSource").selectorBox(productionOverviewParameters.getProductionDataSource().getValue());
-        getSelectorBox("ParametersPageFragment.powerMeasurementUnits").selectorBox(productionOverviewParameters.getPowerMeasurementUnits().getValue());
+        getSelectorBox("ParametersPageFragment.productionMeasurementUnits").selectorBox(productionOverviewParameters.getPowerMeasurementUnits().getValue());
         getSelectorBox("ParametersPageFragment.windSpeedDataSource").selectorBox(productionOverviewParameters.getWindSpeedDataSource().getValue());
         getSelectorBox("ParametersPageFragment.reactiveProductionDataSource").selectorBox(productionOverviewParameters.getReactiveProductionDataSource().getValue());
+
+        execJS("$('#custom-parameters-content').getNiceScroll().doScrollPos(0,1000000000000,10)");
+        
         getSelectorBox("ParametersPageFragment.reactiveProductionMeasurementUnits").selectorBox(productionOverviewParameters.getReactiveProductionMeasurementUnits().getValue());
         getSelectorBox("ParametersPageFragment.dataSet").selectorBox(productionOverviewParameters.getDataSet().getValue());
 
@@ -122,6 +136,9 @@ public class ParametersFragment extends AbstractPageObject {
         getSelectorBox("ParametersPageFragment.outdoorTemperature").selectorBox(windRoseParameters.getOutdoorTemperatureDataSource().getValue());
         getSelectorBox("ParametersPageFragment.powerMeasurementUnits").selectorBox(windRoseParameters.getPowerMeasurementUnits().getValue());
         getSelectorBox("ParametersPageFragment.powerDataSource").selectorBox(windRoseParameters.getPowerDataSource().getValue());
+
+        execJS("$('#custom-parameters-content').getNiceScroll().doScrollPos(0,1000000000000,10)");
+        
         getSelectorBox("ParametersPageFragment.windSpeedDataSource").selectorBox(windRoseParameters.getWindSpeedDataSource().getValue());
         getSelectorBox("ParametersPageFragment.dataSet").selectorBox(windRoseParameters.getDataSet().getValue());
 
@@ -134,7 +151,8 @@ public class ParametersFragment extends AbstractPageObject {
         
         getSelectorBox("ParametersPageFragment.aggregationType").selectorBox(statusCodeStatisticParameters.getAggregationType().getValue());
         getTextField("ParametersPageFragment.skipCodes").typeText(String.valueOf(statusCodeStatisticParameters.getSkipCodesWhichWereActiveLess()));
-        
+
+        getButton("ParametersPageFragment.generate").click();
     }
 
     public void generateStatusCodeTrendReport(StatusCodeTrendParameters statusCodeTrendParameters) throws AutomationFrameworkException {
@@ -146,6 +164,5 @@ public class ParametersFragment extends AbstractPageObject {
 
         getButton("ParametersPageFragment.generate").click();
         
-        pause(30000);
     }
 }

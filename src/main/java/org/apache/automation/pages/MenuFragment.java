@@ -16,14 +16,17 @@ public class MenuFragment extends AbstractPageObject{
 
     @Override
     protected void initPageElement() {
-        addElement(new Button("mapView", PathType.byXPath, "//a[@data-key='Map View']"));
-        addElement(new Button("dashBoard", PathType.byXPath, "//a[@data-key='Dashboard']"));
-        addElement(new Button("onlineLogger", PathType.byXPath, "//a[@data-key='Online Logger']"));
-        addElement(new Button("averageLog", PathType.byXPath, "//a[@data-key='Average Log']"));
-        addElement(new Button("scatterPlot", PathType.byXPath, "//a[@data-key='Scatter Plot']"));
-        addElement(new Button("statusLog", PathType.byXPath, "//a[@data-key='Status Log']"));
-        addElement(new Button("reports", PathType.byXPath, "//ul/li[@class='reports active']/a"));
-        addElement(new Button("alarms", PathType.byXPath, "//a[@data-key='Alarms']"));
+        addElement(new Button("mapView", PathType.byXPath, "(//a[@data-key='Map View'])[1]"));
+        addElement(new Button("siteOverview", PathType.byXPath, "(//a[@data-key='Site overview'])[1]"));
+        addElement(new Button("dashBoard", PathType.byXPath, "(//a[@data-key='Dashboard'])[1]"));
+        addElement(new Button("production", PathType.byXPath, "(//a[@data-key='Production'])[1]"));
+        addElement(new Button("powerCurve", PathType.byXPath, "(//a[@data-key='Power Curve'])[1]"));
+        addElement(new Button("onlineLogger", PathType.byXPath, "(//a[@data-key='Online Logger'])[1]"));
+        addElement(new Button("averageLog", PathType.byXPath, "(//a[@data-key='Average Log'])[1]"));
+        addElement(new Button("scatterPlot", PathType.byXPath, "(//a[@data-key='Scatter Plot'])[1]"));
+        addElement(new Button("statusLog", PathType.byXPath, "(//a[@data-key='Status Log'])[1]"));
+        addElement(new Button("reports", PathType.byXPath, "(//a[@data-key='Reports'])[1]"));
+        addElement(new Button("alarms", PathType.byXPath, "(//a[@data-key='Alarms'])[1]"));
     }
 
     @Override
@@ -35,7 +38,10 @@ public class MenuFragment extends AbstractPageObject{
 
     public void checkMenuItems() throws AutomationFrameworkException {
         menuItems.add(getButton("mapView"));
+        menuItems.add(getButton("siteOverview"));
         menuItems.add(getButton("dashBoard"));
+        menuItems.add(getButton("production"));
+        menuItems.add(getButton("powerCurve"));
         menuItems.add(getButton("onlineLogger"));
         menuItems.add(getButton("averageLog"));
         menuItems.add(getButton("scatterPlot"));
@@ -55,8 +61,21 @@ public class MenuFragment extends AbstractPageObject{
 
     }
 
+    public void openSiteOverview() throws AutomationFrameworkException {
+        getButton("siteOverview").click();
+
+    }
+
     public void openDashBoard() throws AutomationFrameworkException {
         getButton("dashBoard").click();
+    }
+
+    public void openProduction() throws AutomationFrameworkException {
+        getButton("production").click();
+    }
+
+    public void openPowerCurve() throws AutomationFrameworkException {
+        getButton("powerCurve").click();
     }
 
     public void openOnlineLogger() throws AutomationFrameworkException {
@@ -82,5 +101,6 @@ public class MenuFragment extends AbstractPageObject{
     public void openAlarms() throws AutomationFrameworkException {
         getButton("alarms").click();
     }
+
 
 }

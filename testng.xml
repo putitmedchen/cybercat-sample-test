@@ -3,6 +3,7 @@
 
 <suite name="AllTests">
   <suite-files>
-    <suite-file path="testng-suites/demo-suite.xml"></suite-file>
+    <suite-file path="testng-suites/reports-suite.xml"></suite-file>
   </suite-files>
+
 </suite>

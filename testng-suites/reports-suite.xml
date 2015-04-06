@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Cybrecat demo test">
+  <test name="1.Presence All Reports">
+    <classes>
+      <class name="org.mita.automation.reports.PresenceAllReportsTest"/>
+    </classes>
+  </test>
+  <test name="2.Production Efficiency Report">
+    <classes>
+      <class name="org.mita.automation.reports.SimpleProductionEfficiencyReport"></class>
+    </classes>
+  </test>
+  <test name="3.Production Overview Report">
+    <classes>
+      <class name="org.mita.automation.reports.SimpleProductionOverviewReport"></class>
+    </classes>
+  </test>
+  <test name="4.Status Code Statistic Report">
+    <classes>
+      <class name="org.mita.automation.reports.SimpleStatusCodeStatisticReport"></class>
+    </classes>
+  </test>
+  <test name="5.Status Code Trend Report">
+    <classes>
+      <class name="org.mita.automation.reports.SimpleStatusCodeTrendReport"></class>
+    </classes>
+  </test>
+  <test name="6.Wind Rose Report">
+    <classes>
+      <class name="org.mita.automation.reports.SimpleWindRoseReport"></class>
+    </classes>
+  </test>
+</suite>
