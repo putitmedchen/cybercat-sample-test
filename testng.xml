@@ -2,8 +2,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="AllTests">
-  <suite-files>
-    <suite-file path="testng-suites/reports-suite.xml"></suite-file>
-  </suite-files>
+    <suite-files>
+        <suite-file path="testng-suites/reports-suite.xml"></suite-file>
+    </suite-files>
 
 </suite>
