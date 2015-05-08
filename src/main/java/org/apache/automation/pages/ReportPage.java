@@ -24,7 +24,7 @@ public class ReportPage extends AbstractPageObject {
         addElement(new Button("ReportPage.productionOverview", PathType.byXPath, "(//a[@class='dynatree-title-reports'])[4]"));
         addElement(new Button("ReportPage.statusCodeStatistic", PathType.byXPath, "(//a[@class='dynatree-title-reports'])[5]"));
         addElement(new Button("ReportPage.statusCodeTrend", PathType.byXPath, "(//a[@class='dynatree-title-reports'])[6]"));
-        addElement(new Button("ReportPage.WindRose", PathType.byXPath, "(//a[@class='dynatree-title-reports'])[7]"));
+        addElement(new Button("ReportPage.windRose", PathType.byXPath, "(//a[@class='dynatree-title-reports'])[7]"));
         
     }
 
@@ -40,7 +40,7 @@ public class ReportPage extends AbstractPageObject {
         reportList.add(getButton("ReportPage.productionOverview"));
         reportList.add(getButton("ReportPage.statusCodeStatistic"));
         reportList.add(getButton("ReportPage.statusCodeTrend"));
-        reportList.add(getButton("ReportPage.WindRose"));
+        reportList.add(getButton("ReportPage.windRose"));
 
         for (ReportTypes report : reports) {
             for (Button buttonElement : reportList) {
@@ -63,7 +63,7 @@ public class ReportPage extends AbstractPageObject {
     }
 
     public void openWindRose() throws AutomationFrameworkException {
-        getButton("ReportPage.WindRose").click();
+        getButton("ReportPage.windRose").click();
     }
 
     public void openStatusCodeStatistic() throws AutomationFrameworkException {
